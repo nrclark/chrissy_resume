@@ -17,17 +17,15 @@ endif
 
 all default: $(OUTPUT)
 
-.INTERMEDIATE: $(OUTPUT).temp
+.INTERMEDIATE: .$(OUTPUT).temp
 
-$(OUTPUT).temp: $(MAIN_FILE) $(AUX_FILES)
-	$(PDF_LATEX) $<
-	$(PDF_LATEX) $<
+.$(OUTPUT).temp: $(MAIN_FILE) $(AUX_FILES)
 	$(PDF_LATEX) $<
 	$(PDF_LATEX) $<
 	$(PDF_LATEX) $<
 	mv $(<:%.tex=%.pdf) $@
 
-$(OUTPUT): $(OUTPUT).temp
+$(OUTPUT): .$(OUTPUT).temp
 	qpdf \
 	--normalize-content=y \
 	--linearize \
@@ -37,8 +35,9 @@ preview: $(OUTPUT)
 	nohup $(PDFVIEW) $(OUTPUT) 1>/dev/null 2>&1 &
 
 clean:
-	rm -rf $(OUTPUT)
-	rm -rf *.log *.aux
+	rm -f $(MAIN_FILE:%.tex=%.pdf)
+	rm -f $(OUTPUT)
+	rm -f *.log *.aux *.temp
 
 text: $(OUTPUT)
 	gs \
