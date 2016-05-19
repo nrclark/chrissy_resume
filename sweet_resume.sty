@@ -14,7 +14,7 @@
 
 
 %%%%%%%%%%%%%% Title %%%%%%%%%%%%%%
-\newcommand{\nrctitle}[5]{%
+\newcommand{\cawtitle}[5]{%
 \setlength{\mylength}{\widthof{\huge \textbf {#1}}}%
 \noindent \begin{minipage}[b]{\textwidth}%
 \noindent \begin{minipage}[b]{\mylength}%
@@ -35,7 +35,7 @@
 }
 %%%%%%%%%%%%%% One-Off Columns%%%%%%%%%%%%%%%%%%
 % Manually-set Column
-\newcommand{\nrcmanualcol}[2]{
+\newcommand{\cawmanualcol}[2]{
 \noindent 
 \begin{minipage}[t]{#1\textwidth}
 \begin{flushleft} 
@@ -46,7 +46,7 @@
 %%%%%%%%%%%%%% Single-Section %%%%%%%%%%%%%%%%%%
 %
 
-\newcommand{\nrcsinglesection}[2]{
+\newcommand{\cawsinglesection}[2]{
 \setlength{\mylength}{\widthof{\makeheader{#1:\ }}}
 \noindent \begin{minipage}[t]{\mylength}
 \begin{flushleft} 
@@ -61,7 +61,7 @@
 \par \smallskip \smallskip
 }
 
-\newcommand{\nrccolstring}[2]{%
+\newcommand{\cawcolstring}[2]{%
   \begingroup
   \setlength{\registerb}{\widthof{#2}}%
   \setlength{\registera}{\dimexpr \linewidth - \registerb \relax}%
@@ -73,7 +73,7 @@
   \end{minipage}%
 \endgroup}
 
-\newcommand{\nrccolstringb}[2]{%
+\newcommand{\cawcolstringb}[2]{%
   \begingroup
   \setlength{\registerb}{\widthof{#2}}%
   \setlength{\registera}{\dimexpr \linewidth - \registerb \relax}%
@@ -85,7 +85,7 @@
   \end{minipage}%
 \endgroup}
 %%%%%%%%%%%% Making Two Columns%%%%%%%%%%%%%%%
-\newcommand{\nrctwocols}[2]{%
+\newcommand{\cawtwocols}[2]{%
 \hrule%
 \begingroup%
 \setlength\multicolsep{0pt}%

@@ -1,8 +1,8 @@
-MAIN_FILE := nrc_resume.tex
+MAIN_FILE := caw_resume.tex
 AUX_FILES := sweet_resume.sty
 PDF_LATEX := pdflatex
 
-OUTPUT := nicholas_clark_resume.pdf
+OUTPUT := christine_waynick_resume.pdf
 OS := $(strip $(shell uname | tr A-Z a-z))
 OS := $(findstring cygwin,$(OS))$(findstring darwin,$(OS))
 OS := $(if $(OS),$(OS),linux)

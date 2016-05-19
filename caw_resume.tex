@@ -22,11 +22,11 @@
 
 \definecolor{BrBlue}{HTML}{FF7F00}
 
-\newcommand{\NrcColorName}{Black}
-\newcommand{\NrcColorTitle}{RoyalBlue}
-\newcommand{\NrcColorHeaderA}{MidnightBlue}
-\newcommand{\NrcColorSubHeaderA}{MidnightBlue}
-\newcommand{\NrcColorSubHeaderB}{Black}
+\newcommand{\CawColorName}{Black}
+\newcommand{\CawColorTitle}{RoyalBlue}
+\newcommand{\CawColorHeaderA}{MidnightBlue}
+\newcommand{\CawColorSubHeaderA}{MidnightBlue}
+\newcommand{\CawColorSubHeaderB}{Black}
 
 \pdfinfo{
 /Author (Christine Waynick)
@@ -36,12 +36,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \newcommand{\WorkExperienceLineOne}[2]{%
-    \nrccolstring{\textcolor{\NrcColorSubHeaderA}{\textbf{#1}}}%
-    {\textcolor{\NrcColorSubHeaderB}{\textbf{#2}}}%
+    \cawcolstring{\textcolor{\CawColorSubHeaderA}{\textbf{#1}}}%
+    {\textcolor{\CawColorSubHeaderB}{\textbf{#2}}}%
 }
 
 \newcommand{\WorkExperienceLineTwo}[2]{%
-    \nrccolstring{\small\textit{#1}}{\small\textit{#2}}%
+    \cawcolstring{\small\textit{#1}}{\small\textit{#2}}%
 }
 
 \newcommand{\WorkExperienceMidBreak}{%
@@ -55,7 +55,7 @@
 \newcommand{\makeheader}[1]{%
 \begingroup%
     \noindent%
-    \textcolor{\NrcColorHeaderA}{\Large \textbf{\textsc{#1\\}}}%
+    \textcolor{\CawColorHeaderA}{\Large \textbf{\textsc{#1\\}}}%
     \hfill%
 \endgroup%
 \hfill%
@@ -131,15 +131,15 @@
 
 \begin{document}%
 %%%%%%%%%%%%%%% Title %%%%%%%%%%%%
-\nrctitle
-{\textcolor{\NrcColorName}{Christine Waynick}}
+\cawtitle
+{\textcolor{\CawColorName}{Christine Waynick}}
 {1718 Zeus Dr.}
 {Lafayette, CO 80026}
 {323-807-6153}
 {chrissy.waynick@gmail.com}
 %
 \begin{center}\par\smallskip
-\textcolor{\NrcColorTitle}{\Large \textbf{\textsc{Digital Video Specialist}}}\par
+\textcolor{\CawColorTitle}{\Large \textbf{\textsc{Digital Video Specialist}}}\par
 \large \textbf{{Videography, Camera Operations, Production/Post-Production}}\par
 \smallskip
 \noindent \begin{minipage}[t]{0.75\textwidth}%
@@ -244,7 +244,7 @@ post-production. Skilled with cameras, lighting, equipment maintenance, and edit
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%\nrctwocols
+%\cawtwocols
 %\begin{center}$\bullet$\end{center}\par
 
 \noindent\begin{tabularx}{\textwidth}{@{}X|X@{}} 
