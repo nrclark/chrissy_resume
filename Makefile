@@ -1,8 +1,13 @@
 MAIN_FILE := caw_resume.tex
 AUX_FILES := sweet_resume.sty
-PDF_LATEX := pdflatex
+PDF_LATEX := xelatex
+AUTHOR := Christine Waynick
 
-OUTPUT := christine_waynick_resume.pdf
+AUTHOR_SANITIZED := $(strip $(shell printf "$(AUTHOR)" |\
+tr '[:upper:]' '[:lower:]' | tr ' ' '_'))
+
+OUTPUT := $(AUTHOR_SANITIZED)_resume.pdf
+
 OS := $(strip $(shell uname | tr A-Z a-z))
 OS := $(findstring cygwin,$(OS))$(findstring darwin,$(OS))
 OS := $(if $(OS),$(OS),linux)
@@ -17,15 +22,28 @@ endif
 
 all default: $(OUTPUT)
 
-.INTERMEDIATE: .$(OUTPUT).temp
+.SECONDEXPANSION:
+.DELETE_ON_ERROR:
+.INTERMEDIATE: $(foreach x,pdf log aux metadata.txt metadata.pdf,$(MAIN_FILE:%.tex=%.$x))
 
-.$(OUTPUT).temp: $(MAIN_FILE) $(AUX_FILES)
+%.pdf %.log %.aux: %.tex $(AUX_FILES)
 	$(PDF_LATEX) $<
 	$(PDF_LATEX) $<
 	$(PDF_LATEX) $<
-	mv $(<:%.tex=%.pdf) $@
+	$(PDF_LATEX) $<
+	$(PDF_LATEX) $<
 
-$(OUTPUT): .$(OUTPUT).temp
+%.metadata.txt: %.pdf
+	printf "InfoBegin\nInfoKey: Author\nInfoValue: $(AUTHOR)\n" > $@
+	printf "InfoBegin\nInfoKey: Title\nInfoValue: Resume - $(AUTHOR)\n" >> $@
+	pdftk $< dump_data >> $@
+	sed -i 's/InfoValue:[ \t]*XeTeX.*/InfoValue:/g' $@
+	sed -i 's/InfoValue:[ \t]*xdvi.*/InfoValue:/g' $@
+
+%.metadata.pdf: %.pdf $$*.metadata.txt
+	pdftk $< update_info $(lastword $^) output $@
+
+$(OUTPUT): $(basename $(MAIN_FILE)).metadata.pdf
 	qpdf \
 	--normalize-content=y \
 	--linearize \
@@ -35,9 +53,8 @@ preview: $(OUTPUT)
 	nohup $(PDFVIEW) $(OUTPUT) 1>/dev/null 2>&1 &
 
 clean:
-	rm -f $(MAIN_FILE:%.tex=%.pdf)
 	rm -f $(OUTPUT)
-	rm -f *.log *.aux *.temp
+	rm -f $(foreach x,pdf log aux metadata.txt metadata.pdf,$(MAIN_FILE:%.tex=%.$x))
 
 text: $(OUTPUT)
 	gs \
