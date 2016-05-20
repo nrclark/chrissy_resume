@@ -1,5 +1,5 @@
 \documentclass[letterpaper, 11pt]{article}
-\usepackage[margin=0.6in]{geometry}
+\usepackage[margin=0.50in]{geometry}
 
 \usepackage{calc}
 
@@ -14,24 +14,11 @@
 
 \pagenumbering{gobble}
 
-\definecolor{BrOrange}{HTML}{FF7F00}
-
-\definecolor{MariPro}{HTML}{D43247}
-\definecolor{DarkDark}{HTML}{000044}
-\definecolor{NGreenB}{HTML}{666633}
-
-\definecolor{BrBlue}{HTML}{FF7F00}
-
 \newcommand{\CawColorName}{Black}
 \newcommand{\CawColorTitle}{RoyalBlue}
 \newcommand{\CawColorHeaderA}{MidnightBlue}
 \newcommand{\CawColorSubHeaderA}{MidnightBlue}
 \newcommand{\CawColorSubHeaderB}{Black}
-
-\pdfinfo{
-/Author (Christine Waynick)
-/Title  (Resume - Christine Waynick)
-}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -63,71 +50,60 @@
 %
 
 %%%%%%%%%%%%%%%%%%%%%%%%% Work Experience %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\hyphenation{travelchannel}
+\newcommand{\workQuartermile}{%
+    \WorkExperienceLineOne {Quartermile Films} {Ojai, CA}
+    \WorkExperienceLineTwo {Editor/Assistant Editor} {2011-2015}
+    \WorkExperienceMidBreak
 
-\newcommand{\workKarlStorz}{%
-	\WorkExperienceLineOne {Karl Storz Imaging} {Goleta, CA}
-	\WorkExperienceLineTwo {FPGA Engineer III} {2013-Present}
-	\WorkExperienceMidBreak
-
-    Lead FPGA engineer on commercially-available medical video systems.
-    teams to develop successful commercial products. Designed 3D, 2k and 4k
-    video systems operating at NTSC and PAL frame rates.
+    Editor and assistant editor on several reality television shows. Captured
+    and catalogued footage from multiple-camera shoots. Edited short webisodes
+    and full-length television shows and specials.
     \WorkExperienceMidBreak
     
-    Designed and implemented camera firmware for Xilinx FPGAs in Vivado and
-    communication, and DVI interfaces. Wrote C applications to run on
-    FPGA-hosted microcontrollers. Mentored junior engineers.
-	\WorkExperienceEndBreak%
+    Created and edited webisodes of \textit{Rock my RV}, \textit{Extreme RVs},
+    and \textit{Extreme Yachts} (published on travelchannel.com). Involved
+    from concept to completion.
+    \WorkExperienceMidBreak
+    
+    Provided string-outs, media management, and assistant editing for
+    \textit{American Trucker}, \textit{Inside West Coast Customs},
+    \textit{Extreme Yachts}, and \textit{World of X-Games}. Coordinated between
+    production and post-production teams as required.
+    \WorkExperienceEndBreak%
 }
 
-\newcommand{\workLthree}{%
-	\WorkExperienceLineOne {L-3 Ocean Systems} {Goleta, CA}
-	\WorkExperienceLineTwo {Electrical Engineer II} {2011-2013}
-	\WorkExperienceLineTwo {Electrical Engineer I} {2007-2011}
-	\WorkExperienceLineTwo {Electrical Engineering Intern} {2007}
-	\WorkExperienceMidBreak
-    \$70M coastal observatory contract with the National Science Foundation and
-    the University of Washington.
+\newcommand{\workParadigm}{%
+    \WorkExperienceLineOne {Paradigm Pictures} {Santa Barbara, CA}
+    \WorkExperienceLineTwo {Assistant Editor} {2010-2011}
+    \WorkExperienceMidBreak
+    Assistant editor at a small editing house. Responsible for transcoding,
+    media management, and cataloguing captured footage. Worked on local
+    cable-access reality TV shows including \textit{On Duty} and \textit{On 
+    Patrol}.
+    \WorkExperienceEndBreak%
+}
+
+\newcommand{\workDolby}{%
+    \WorkExperienceLineOne {Dolby Laboratories} {Burbank, CA}
+    \WorkExperienceLineTwo {Production Assistant} {2009-2011}
+    \WorkExperienceMidBreak
+    
+    Production assistant on test shoots for experimental cameras. Worked with
+    producer, associate producer, and crew to ensure successful shoots.
+    \WorkExperienceEndBreak%
+}
+
+\newcommand{\EducationBrooks}{%
+    \WorkExperienceLineOne{Brooks Institute} {Ventura, CA}
+    \WorkExperienceLineTwo{B.F.A. in Video and Film Production} {2008}
     \WorkExperienceMidBreak
 
-    underwater communication/surveillance systems. Interfaced with production and
-    test engineers to oversee manufacturing runs.
-	\WorkExperienceEndBreak%
+    Elective coursework focused on camera operation and screenwriting. Student
+    projects included spec commercials, music videos, and narrative short films.
+    Provided supervision and training at equipment checkout department.
+    \WorkExperienceEndBreak%
 }
-
-\newcommand{\workMotionEng}{%
-	\WorkExperienceLineOne {Motion Engineering, Inc} {Goleta, CA}
-	\WorkExperienceLineTwo {Engineering Intern} {2006-2007}
-	\WorkExperienceMidBreak
-    Engineering intern. Worked with high-performance motion controllers used in
-    issues and suggest workarounds for unavailable parts. Interacted directly
-    with global contractors. Auctioned and sold test equipment.
-	\WorkExperienceEndBreak%
-}
-
-\newcommand{\workUCSBLifesci}{%
-	\WorkExperienceLineOne {UCSB Life Sciences Department} {Goleta, CA}
-	\WorkExperienceLineTwo {IT Helpdesk} {2004-2006}
-	\WorkExperienceMidBreak
-    Provided support for 800+ faculty, staff and graduate students in two
-    academic departments and two interdisciplinary graduate programs.
-    Responsible for basic and advanced troubleshooting to diagnose and
-    resolve both hardware and software problems. Configured and maintained
-    OS X, Linux, Windows, and FreeBSD computers.
-	\WorkExperienceEndBreak%
-}
-
-\newcommand{\EducationUCSB}{%
-    \WorkExperienceLineOne{Brooks Institute} {Ventura, CA}
-    \WorkExperienceLineTwo{B.F.A.in Video and Film Production} {2007}
-	\WorkExperienceMidBreak
-    Elective coursework focused on embedded systems, DSP, and technical writing.
-    Active in student chapter of IEEE. Senior project on vehicular 360-degree
-    FOV camera systems.
-	\WorkExperienceEndBreak%
-}
-
-\hyphenation{Micro-blaze} 
 
 \begin{document}%
 %%%%%%%%%%%%%%% Title %%%%%%%%%%%%
@@ -140,7 +116,7 @@
 %
 \begin{center}\par\smallskip
 \textcolor{\CawColorTitle}{\Large \textbf{\textsc{Digital Video Specialist}}}\par
-\large \textbf{{Videography, Camera Operations, Production/Post-Production}}\par
+\large \textbf{{Videography and Post-Production}}\par
 \smallskip
 \noindent \begin{minipage}[t]{0.75\textwidth}%
 \begin{sloppypar}
@@ -150,17 +126,15 @@ post-production. Skilled with cameras, lighting, equipment maintenance, and edit
 \end{minipage}
 \end{center}
 \par \smallskip \smallskip
+
 %%%%%%%%%%%%% Column 1%%%%%%%%%%%%%%%
-%
-%    horizontal: leftmargin, rightmargin, itemindent, listparindent, labelwidth, labelsep
-%    vertical: topsep, partopsep, parsep, itemsep
-%
+
 \newcommand{\MyColumnOne}{%
     \setitemize[0]{leftmargin=*, parsep=0pt, itemsep=0pt, topsep=0pt, partopsep=0pt}%
     \noindent \begin{minipage}[t]{0.45\textwidth}%
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\par \smallskip \begin{spacing}{0.95}%
+    \WorkExperienceMidBreak
+    \WorkExperienceMidBreak
+    \par \smallskip \begin{spacing}{0.95}%
 
     \begin{flushleft} %
     \makeheader{Live Production} \par%
@@ -170,76 +144,74 @@ post-production. Skilled with cameras, lighting, equipment maintenance, and edit
         \item Camera and Microphone Operation
         \item Equipment Maintenance
     \end{itemize}%
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\makeheader{Editing and Post-Production} \par%
+    \WorkExperienceMidBreak
+    \WorkExperienceMidBreak
+    \makeheader{Editing and Post-Production} \par%
     \begin{itemize}%
         \item Editing for Broadcast and Online Publication
         \item Sound and Color Correction
         \item Footage Logging and Archiving
+        \item Transcoding
         \item Coordination with Production Teams
-	\end{itemize}%
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\makeheader{Software Skills} \par%
+    \end{itemize}%
+    \WorkExperienceMidBreak
+    \WorkExperienceMidBreak
+    \makeheader{Software Skills} \par%
     %    
     \WorkExperienceLineOne{Post-Production Software}{}
-	\WorkExperienceMidBreak
-    \begin{itemize}%	
-		\item Adobe Premiere
-		\item Avid Media Composer
-		\item Final Cut Pro
-		\item Adobe After Effects
-	\end{itemize}%
+    \WorkExperienceMidBreak
+    \begin{itemize}%    
+        \item Adobe Premiere
+        \item Adobe Audition
+        \item Avid Media Composer
+        \item Avid Pro Tools
+        \item Final Cut Pro
+        \item Adobe After Effects
+    \end{itemize}%
     %
-	\WorkExperienceMidBreak
+    \WorkExperienceMidBreak
     \WorkExperienceLineOne{General Computing}{}
-	\WorkExperienceMidBreak
+    \WorkExperienceMidBreak
     \begin{itemize}%
-	    \item Adobe Photoshop and Lightroom\\
-	    \item Adobe Illustrator\\
-	    \item OS X and Microsoft Windows\\
-	    \item Microsoft Word, Excel, and Powerpoint\\
-	    \item Google Docs and Google Calendar\\
-	\end{itemize}%
-	%
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\makeheader{Education} \par%
-	\WorkExperienceMidBreak
-    \EducationUCSB
+        \item Adobe Photoshop and Lightroom\\
+        \item Adobe Illustrator\\
+        \item OS X and Microsoft Windows\\
+        \item Microsoft Word, Excel, and Powerpoint\\
+        \item Google Docs and Google Calendar\\
+    \end{itemize}%
+    %
+    \WorkExperienceMidBreak
+    \WorkExperienceMidBreak
+    \makeheader{Education} \par%
+    %
+    \begin{minipage}[t]{\textwidth} \EducationBrooks \end{minipage}
 
 \end{flushleft}%
 \end{spacing} \end{minipage}%
 }
 %
 %%%%%%%%%%%%% Column 2%%%%%%%%%%%%%%%
-%    \setitemize[0]{leftmargin=*, parsep=0pt, itemsep=0pt, topsep=0pt, partopsep=0pt}%
-%    \noindent \begin{minipage}[t]{0.45\textwidth}%
 
 \newcommand{\MyColumnTwo}{%
     \setitemize[0]{leftmargin=*, parsep=0pt, itemsep=0pt, topsep=0pt, partopsep=0pt}%
     \noindent \begin{minipage}[t]{0.45\textwidth}%
-	\WorkExperienceMidBreak
-	\WorkExperienceMidBreak
-	\par \smallskip \begin{spacing}{0.95}%
+    \WorkExperienceMidBreak
+    \WorkExperienceMidBreak
+    \par \smallskip \begin{spacing}{0.95}%
 
-    \begin{flushleft} %
     \makeheader{Work Experience} \par%
-        \workKarlStorz
-        \workLthree
-        %\workMotionEng
-        %\workUCSBLifesci
-	
-	\makeheader{Volunteer} \par%
-   	\WorkExperienceLineOne{FIRST Robotics}{Goleta, CA}
-   	\WorkExperienceLineTwo{Team 1717 Engineering Mentor}{2013-2015}
-   	\WorkExperienceMidBreak
-    Electrical engineering mentor for high-school student robotics team.
-\end{flushleft}%
+        \workQuartermile
+        \workParadigm
+        \workDolby
+    
+    \makeheader{Volunteer} \par%
+    \WorkExperienceLineOne{Red Cross}{Ventura, CA}
+    \WorkExperienceLineTwo{Blood Drive Organizer}{2014}
+    \WorkExperienceMidBreak
+
+    Organized a blood drive for Quartermile Films and surrounding companies in
+    the business park. Recruited donors from participating companies and the
+    surrounding community.
 \end{spacing} \end{minipage}%
 }
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
