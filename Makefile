@@ -74,7 +74,7 @@ clean:
 	rm -f $(RESUME) $(LETTER)
 	rm -f $(foreach x,pdf log aux metadata.txt metadata.pdf,$(MAIN_FILE:%.tex=%.$x))
 
-text: $(RESUME)
+text: $(RESUME) $(LETTER)
 	gs \
 	-q \
 	-dNODISPLAY \
@@ -83,6 +83,6 @@ text: $(RESUME)
 	-dWRITESYSTEMDICT \
 	-dSIMPLE \
 	-f ps2ascii.ps \
-	"$<" \
+	$^ \
 	-dQUIET \
 	-c quit
