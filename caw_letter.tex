@@ -1,0 +1,64 @@
+\documentclass[letterpaper, 11pt]{article}
+\usepackage[margin=0.55in]{geometry}
+
+\usepackage{calc}
+\usepackage{anyfontsize}
+\usepackage{sweet_resume}
+
+\usepackage{enumitem}
+\usepackage{tabularx}
+
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage[usenames,dvipsnames]{xcolor}
+
+\pagenumbering{gobble}
+
+\newcommand{\CawColorName}{Black}
+\newcommand{\CawColorTitle}{RoyalBlue}
+\newcommand{\CawColorHeaderA}{MidnightBlue}
+\newcommand{\CawColorSubHeaderA}{MidnightBlue}
+\newcommand{\CawColorSubHeaderB}{Black}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Macros %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\LetterContents}{%
+\par \bigskip \bigskip \bigskip \bigskip
+To CU's Hiring Manager,
+\par \bigskip \bigskip
+Hi, my name is Christine and I am looking to apply for the position of
+video production specialist. I read your post on the CU website and am very
+interested in joining your team. First let me start with a little history on
+my part. I graduated from film school in 2008 with a bachelor’s degree in
+film and video production. I have been working as an editor for the past
+five years where I have worked on tv shows and web content.
+\par \bigskip \smallskip
+I moved to Colorado to be with my fiancé, as he has moved here for work.
+Now, I too, am looking for a job. I understand you want to film classes
+for online use, and I think my background really matches your needs.
+\par \bigskip \smallskip
+I do feel I have the experience and knowledge to join your team, and make
+online content for students to advance their education. Not only that, I
+like working in teams and with other people. I am a creative person who
+likes to collaborate while making videos.
+\par \bigskip \bigskip
+Best regards,
+\par \smallskip
+Christine Waynick
+}
+
+\begin{document}%
+%%%%%%%%%%%%%%% Title %%%%%%%%%%%%
+\cawtitle
+{\textcolor{\CawColorName}{Christine Waynick}}
+{1718 Zeus Dr.}
+{Lafayette, CO 80026}
+{323-807-6153}
+{chrissy.waynick@gmail.com}
+%
+\noindent \centerline {\begin{minipage}[t]{0.9\textwidth}{
+\fontsize{13}{15.6}\selectfont
+\setstretch{1.2}
+\LetterContents}
+\end{minipage}}
+\end{document}
