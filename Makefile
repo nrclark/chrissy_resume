@@ -1,6 +1,7 @@
 MAIN_FILE := caw_resume.tex
 AUX_FILES := sweet_resume.sty
-PDF_LATEX := xelatex
+USERNAME := $(strip $(shell id -un))
+PDF_LATEX := sudo -u $(USERNAME) xelatex
 AUTHOR := Christine Waynick
 
 AUTHOR_SANITIZED := $(strip $(shell printf "$(AUTHOR)" |\
