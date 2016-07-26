@@ -25,9 +25,6 @@ endif
 
 get_type = $(strip $(shell printf "$(lastword $(subst _, ,$(basename $1)))" |\
 	   	     sed -r 's/\<./\U&/g'))
-test:
-	echo $(call get_type,$(MAIN_FILE))
-	echo $(call get_type,$(COVER_LETTER))
 
 all default: $(RESUME)
 
