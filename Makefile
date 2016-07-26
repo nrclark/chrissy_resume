@@ -36,6 +36,9 @@ all default: $(RESUME)
 .INTERMEDIATE: $(foreach x,pdf log aux metadata.txt metadata.pdf,$(MAIN_FILE:%.tex=%.$x))
 .INTERMEDIATE: $(foreach x,pdf log aux metadata.txt metadata.pdf,$(COVER_LETTER:%.tex=%.$x))
 
+TIMESTAMP := $(shell date +"%Y%m%d%H%M%S")
+TITLE = $(call get_type,$1) - $(AUTHOR)
+
 %.pdf %.log %.aux: %.tex $(AUX_FILES)
 	$(PDF_LATEX) $<
 	$(PDF_LATEX) $<
@@ -43,15 +46,19 @@ all default: $(RESUME)
 	$(PDF_LATEX) $<
 	$(PDF_LATEX) $<
 
-%.metadata.txt: %.pdf
-	printf "InfoBegin\nInfoKey: Author\nInfoValue: $(AUTHOR)\n" > $@
-	printf "InfoBegin\nInfoKey: Title\nInfoValue: $(call get_type,$<) - $(AUTHOR)\n" >> $@
-	pdftk $< dump_data >> $@
-	sed -i 's/InfoValue:[ \t]*XeTeX.*/InfoValue:/g' $@
-	sed -i 's/InfoValue:[ \t]*xdvi.*/InfoValue:/g' $@
+%.pdfmarks: %.pdf
+	echo "[ /Title ($(call TITLE,$<))" > $@
+	echo "/Author ($(AUTHOR))" >>$@
+	echo "/Subject ($(call get_type,$<))" >>$@
+	echo "/Keywords ()" >>$@
+	echo "/ModDate (D:$(TIMESTAMP))" >>$@
+	echo "/CreationDate (D:$(TIMESTAMP))" >>$@
+	echo "/Creator ()" >>$@
+	echo "/Producer ()" >>$@
+	echo "/DOCINFO pdfmark" >>$@
 
-%.metadata.pdf: %.pdf $$*.metadata.txt
-	pdftk $< update_info $(lastword $^) output $@
+%.metadata.pdf: %.pdf %.pdfmarks
+	gs -dSAFER -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$@ $^
 
 resume: $(RESUME)
 $(RESUME): $(basename $(MAIN_FILE)).metadata.pdf
@@ -72,7 +79,7 @@ preview: $(LETTER) $(RESUME)
 
 clean:
 	rm -f $(RESUME) $(LETTER)
-	rm -f $(foreach x,pdf log aux metadata.txt metadata.pdf,$(MAIN_FILE:%.tex=%.$x))
+	rm -f $(foreach x,pdf log aux pdfmarks metadata.pdf,$(MAIN_FILE:%.tex=%.$x))
 
 text: $(RESUME) $(LETTER)
 	gs \
